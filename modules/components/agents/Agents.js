@@ -2,11 +2,12 @@ import React from 'react'
 import $ from 'jquery'
 import { Link } from 'react-router'
 import { thumb, downTen } from './styles.css'
+import ring from '../ring.svg'
 
 class Agents extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { agents: [] }
+    this.state = { agents: [], isLoading: true }
   }
 
   componentWillMount() {
@@ -15,7 +16,7 @@ class Agents extends React.Component {
       type: 'GET',
       contentType: 'application/json'
     }).done( agents => {
-      this.setState({ agents: agents })
+      this.setState({ agents: agents, isLoading: false })
     })
   }
 
@@ -46,10 +47,15 @@ class Agents extends React.Component {
         </div>
       )
     })
+    let loading = () => {
+      if (this.state.isLoading)
+        return(<img src={ring} />)
+    }
     return(
       <div>
         <h4 className="center">Agents</h4>
         <div className={`row ${downTen}`}>
+          {loading()}
           {agents}
         </div>
       </div>

@@ -4,6 +4,7 @@ import $ from 'jquery'
 import { profileImg, logoImg, downTen } from './styles.css'
 import logo from '../logoBlue.png'
 import ContactForm from '../contact/ContactForm'
+import ring from '../ring.svg'
 
 class Agent extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class Agent extends React.Component {
     this.deleteAgent = this.deleteAgent.bind(this)
     this.editAgent = this.editAgent.bind(this)
     this.bio = this.bio.bind(this)
-    this.state = { agent: {}, edit: false, notFound: false }
+    this.state = { agent: {}, edit: false, notFound: false, isLoading: true }
   }
 
   componentWillMount() {
@@ -23,7 +24,7 @@ class Agent extends React.Component {
       contentType: 'application/json',
       data: { url: agentUrl }
     }).done( agent => {
-      this.setState({ agent: agent })
+      this.setState({ agent: agent, isLoading: false })
     }).fail( () => {
       if (this.props.auth)
         this.props.history.push('/dashboard')
@@ -109,12 +110,17 @@ class Agent extends React.Component {
     }
     let name = agent.url ? `${agent.firstName} ${agent.lastName}` : 'Agent Not Found'
     let phone = agent.phone ? agent.phone.replace('(','').replace('-','').replace(' ', '') : ''
+    let loading = () => {
+      if (this.state.isLoading)
+        return(<img src={ring} />)
+    }
     return(
       <div>
         {edit()}
         <div className="row">
           <div className="col s12 m3 center">
             <img className={profileImg} src={`https://dl.dropboxusercontent.com/s/${agent.imgUrl}?raw=1`} />
+            {loading()}
             <h5 className="center">{`${name}`}</h5>
             <div className="center">
               <a href={`tel:${phone}`}>{agent.phone}</a>
