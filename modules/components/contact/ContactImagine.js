@@ -18,7 +18,7 @@ class ContactImagine extends React.Component {
               <a href="tel:8012057000">801-205-7000</a>
             </h5>
             <h5 className="center">
-              contact@imagineutah.com
+              janet@imagineutah.com
             </h5>
           </div>
           <div className="col s12 m6">
