@@ -50,7 +50,6 @@ class App extends React.Component {
                 <NavItem><IndexLink className={yellow} to="/">Home</IndexLink></NavItem>
                 <NavItem><Link className={yellow} to="/search_homes">Search Homes</Link></NavItem>
                 <NavItem><Link className={yellow} to="/agents">Find An Agent</Link></NavItem>
-                <NavItem><a className={yellow} href="#careers">Careers</a></NavItem>
                 {dashboard()}
                 <NavItem onClick={this.handleLogin}><i className="fa fa-gear"></i></NavItem>
               </ul>
