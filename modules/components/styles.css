@@ -1,0 +1,76 @@
+.blue {
+  color: #0d47a1;
+}
+.blueBg {
+  background-color: #0d47a1 !important;
+}
+.yellow {
+  color: #ffff00 !important;
+}
+.yellowBg {
+  background-color: #fff59d !important;
+}
+
+.greyBg {
+  background-color: #212121 !important;
+}
+
+.bg {
+  background: url('./cover.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+}
+
+.icon {
+  font-size: 4em;
+  cursor: pointer;
+}
+
+.iconSm {
+  font-size: 2em;
+}
+
+.iconContainer {
+  padding: 30px;
+}
+
+.linkRow {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #0d47a1;
+  background-color: hsla(216, 85%, 34%, 0.7);
+}
+
+.smallLogo {
+  margin-left: 10px;
+  width: 100px;
+}
+
+.lgLogo {
+  width: 50vw;
+}
+
+.bigImg {
+  width: 200px !important;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+.bottom {
+  margin-bottom: 30px;
+}
+
+.agent-image {
+  max-width: 200px;
+}
+
+.sideLink {
+  font-size: 16px;
+  height: 100%;
+}

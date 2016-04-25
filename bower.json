@@ -1,0 +1,19 @@
+{
+  "name": "imagine-re",
+  "description": "",
+  "main": "",
+  "authors": [
+    "dave <djungst@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "static/",
+    "test",
+    "tests"
+  ]
+}
