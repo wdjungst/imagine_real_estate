@@ -8,6 +8,7 @@ class Dashboard extends React.Component {
     super(props)
     this.addAgent = this.addAgent.bind(this)
     this.getAgents = this.getAgents.bind(this)
+    this.filterUrl = this.filterUrl.bind(this)
     this.state = { agents: [] }
   }
 
@@ -65,6 +66,13 @@ class Dashboard extends React.Component {
     )
   }
 
+  filterUrl() {
+    let url = this.refs.url
+    let str = this.refs.url.value
+    debugger
+    url.value = str.replace(/[^a-z0-9]/gi,'')
+  }
+
 
   render() {
     let agents = this.state.agents.map( agent => {
@@ -80,7 +88,7 @@ class Dashboard extends React.Component {
               <input placeholder="First Name" ref="firstName" />
               <input placeholder="Last Name" ref="lastName" />
               <input placeholder="Email" ref="email" />
-              <input placeholder="url" ref="url" required={true} />
+              <input onChange={this.filterUrl} placeholder="url" ref="url" required={true} />
               <input placeholder="(801) 555-5555" ref="phone" />
               <input placeholder="jeakin.jpg" ref="imgUrl" />
               <textarea ref="bio"></textarea>
