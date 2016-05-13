@@ -22,7 +22,6 @@ class DueDilligence extends React.Component {
       environmental_report: [],
       exchangers: [],
       title_companies: [],
-      commercial_property: [],
       education: []
     }
   }
@@ -48,7 +47,6 @@ class DueDilligence extends React.Component {
         environmental_report: services.filter( service => service.category == 'environmental_report' ),
         exchangers: services.filter( service => service.category == '1031_exchangers' ),
         title_companies: services.filter( service => service.category == 'title_companies' ),
-        commercial_property: services.filter( service => service.category == 'commercial_property' ),
         education: services.filter( service => service.category == 'education' )
       })
     })
@@ -70,7 +68,6 @@ class DueDilligence extends React.Component {
     let environmental_report = this.state.environmental_report.map( service => { return(<Service key={service._id} {...service} />) })
     let exchangers = this.state.exchangers.map( service => { return(<Service key={service._id} {...service} />) })
     let title_companies = this.state.title_companies.map( service => { return(<Service key={service._id} {...service} />) })
-    let commercial_property = this.state.commercial_property.map( service => { return(<Service key={service._id} {...service} />) })
     let education = this.state.education.map( service => { return(<Service key={service._id} {...service} />) })
     return(
       <div className="row">
@@ -120,9 +117,6 @@ class DueDilligence extends React.Component {
           <br/>
           <br/>
           <a className={`white-text ${sideLink}`} href="#title_companies">Title Companies</a>
-          <br/>
-          <br/>
-          <a className={`white-text ${sideLink}`} href="#commercial_property">Commercial Property</a>
           <br/>
           <br/>
           <a className={`white-text ${sideLink}`} href="#education">Education</a>
@@ -190,6 +184,15 @@ class DueDilligence extends React.Component {
               <ul className="center">
                 {hazardous_waste}
               </ul>
+              <h5>Disposal</h5>
+              <p>6030 W. California Ave: Mon-Sat (8 am-4 pm)</p>
+              <p>10873 S. 7200 W.: Mon-Sat (8 am-4 pm)</p>
+              <p>4646 S. 500 W.: Mon-Fri (7 am-3:30 pm)* </p>
+              <p>8775 S. 700 W.: Mon-Fri (8 am-4 pm)* </p>
+              <p>*Accepts ONLY antifreeze, batteries, oil, and paint </p>
+              <p>
+                For More Information Call: (801) 313-6697
+              </p>
             </div>
             <div id="duct_cleaning" className="col s12 center">
               <h3>Duct Cleaning</h3>
@@ -219,12 +222,6 @@ class DueDilligence extends React.Component {
               <h3>Title Companies</h3>
               <ul className="center">
                 {title_companies}
-              </ul>
-            </div>
-            <div id="commercial_property" className="col s12 center">
-              <h3>Commercial Property</h3>
-              <ul className="center">
-                {commercial_property}
               </ul>
             </div>
             <div id="education" className="col s12 center">

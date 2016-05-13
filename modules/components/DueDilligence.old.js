@@ -169,12 +169,6 @@ class DueDilligence extends React.Component {
               </p>
               <h5>Testing</h5>
               <p>
-                <a href="tel:%28801%29%20455-7697" target="_blank">All-Points Home Inspections: (801) 455-7697 </a>
-              </p>
-              <p>
-                <a href="tel:%28888%29%20944-8310" target="_blank">AmeriSpec Home Inspection Service: (888) 944-8310 </a>
-              </p>
-              <p>
                 <a href="http://www.radon.utah.gov/" target="_blank">Order Radon Test Kit: (800) 324-5928 ext. 21</a>
               </p>
               <h5>Mitigation</h5>

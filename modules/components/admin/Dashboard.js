@@ -187,7 +187,6 @@ class Dashboard extends React.Component {
                 <option value="environmental_report">Environmental Report</option>
                 <option value="1031_exchangers">1031 Exchangers</option>
                 <option value="title_companies">Title Companies</option>
-                <option value="commercial_property">Commercial Property</option>
                 <option value="education">Education</option>
               </select>
               <input placeholder="Name" ref="name" required={true}/>
@@ -213,7 +212,6 @@ class Dashboard extends React.Component {
                 <option value="environmental_report">Environmental Report</option>
                 <option value="1031_exchangers">1031 Exchangers</option>
                 <option value="title_companies">Title Companies</option>
-                <option value="commercial_property">Commercial Property</option>
                 <option value="education">Education</option>
               </select>
               {services}
