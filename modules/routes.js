@@ -14,6 +14,7 @@ import Agents from './components/agents/Agents'
 import DueDilligence from './components/DueDilligence'
 import SignIn from './components/auth/SignIn'
 import { signIn, signUp } from './api/auth'
+import { addService, getServices, deleteService, updateService } from './api/services'
 import { sendContact } from './api/contact'
 import { addAgent, getAgents, getAgent, deleteAgent, updateAgent } from './api/agents'
 import SignUp from './components/auth/SignUp'
@@ -41,6 +42,9 @@ export default (
       <Route path="login" component={SignIn} />
     </Route>
     <ServerRoute path="/api">
+      <ServerRoute path="services" get={getServices} post={addService} >
+        <ServerRoute path=":id" delete={deleteService} patch={updateService} />
+      </ServerRoute>
       <ServerRoute path="contact" post={sendContact} />
       <ServerRoute path="auth">
         <ServerRoute path="signup" post={signUp} />

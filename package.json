@@ -48,6 +48,7 @@
     "karma-mocha-reporter": "1.2.0",
     "karma-sourcemap-loader": "0.3.7",
     "karma-webpack": "1.7.0",
+    "materialize-css": "0.97.6",
     "mocha": "2.4.5",
     "mongoose": "4.4.13",
     "morgan": "1.7.0",

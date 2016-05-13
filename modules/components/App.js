@@ -18,6 +18,9 @@ class App extends React.Component {
       this.props.dispatch(loggedIn(sessionStorage.userId, sessionStorage.token))
   }
 
+  componentDidMount() {
+  }
+
   handleLogin() {
     if (this.props.auth) {
       this.props.dispatch(logout())
@@ -30,7 +33,7 @@ class App extends React.Component {
   render() {
     let dashboard = () => {
       if (this.props.auth) {
-        return(<NavItem><a className={yellow} href="/dashboard">Dashboard</a></NavItem>)
+        return(<NavItem className="hide-on-med-and-down"><a className={yellow} href="/dashboard">Dashboard</a></NavItem>)
       } else {
         return null
       }
@@ -42,16 +45,16 @@ class App extends React.Component {
         <div className="navbar-fixed">
           <nav>
             <div className={`${blueBg} nav-wrapper`}>
-              <Link to="/" className="brand-logo">
+              <Link to="/" className="brand-logo hide-on-med-and-down">
                 <img src={whiteLogo} className={smallLogo} />
               </Link>
-              <ul id="nav-mobile" className={`right hide-on-med-and-down`}>
-                <NavItem><a href="tel:801-205-7000">(801) 205-7000</a></NavItem>
+              <ul id="nav-mobile" className={`right`}>
+                <NavItem className="hide-on-med-and-down"><a href="tel:801-205-7000">(801) 205-7000</a></NavItem>
                 <NavItem><IndexLink className={yellow} to="/">Home</IndexLink></NavItem>
                 <NavItem><Link className={yellow} to="/search_homes">Search Homes</Link></NavItem>
                 <NavItem><Link className={yellow} to="/agents">Find An Agent</Link></NavItem>
                 {dashboard()}
-                <NavItem onClick={this.handleLogin}><i className="fa fa-gear"></i></NavItem>
+                <NavItem className="hide-on-med-and-down" onClick={this.handleLogin}><i className="fa fa-gear"></i></NavItem>
               </ul>
             </div>
           </nav>
