@@ -24,11 +24,11 @@ class SearchBox extends React.Component {
         <Card title="Search">
           <Row>
             <Input s={12} type="select" label="Property Type" onChange={this.handleChange.bind(this)}>
-              <option selected={this.selected("Commercial")} value="1">Commercial</option>
-              <option selected={this.selected("Farm")} value="2">Farm</option>
-              <option selected={this.selected("Lots and Land")} value="3">Lots and Land</option>
-              <option selected={this.selected("Multi-Family")} value="4">Multi-Family</option>
-              <option selected={this.selected("Residential")} value="5">Residential</option>
+              <option selected={this.selected('Commercial')} value="1">Commercial</option>
+              <option selected={this.selected('Farm')} value="2">Farm</option>
+              <option selected={this.selected('Lots and Land')} value="3">Lots and Land</option>
+              <option selected={this.selected('Multi-Family')} value="4">Multi-Family</option>
+              <option selected={this.selected('Residential')} value="5">Residential</option>
             </Input>
             {subTypes}
           </Row>

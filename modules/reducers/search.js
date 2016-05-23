@@ -1,4 +1,4 @@
-const search = ( state = { propertyType: 'Residential', subTypes: [ 'Condo', 'Mobile (w/o Land)', 'Recreational', 'Single Family', 'Townhouse', 'Twin' ]}, action ) => {
+const search = ( state = { propertyType: 'Residential', subTypes: [ 'Condo', 'Mobile (w/o Land)', 'Recreational', 'Single Family', 'Townhouse', 'Twin' ] }, action ) => {
   switch (action.type) {
     case 'SUB_PROP_TYPE':
       return { propertyType: action.propertyType, subTypes: subType(action.propertyType) }
