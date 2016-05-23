@@ -55,6 +55,31 @@ export const signup = (email, pass, history) => {
   }
 }
 
+export const search = (propNum) => {
+  let propertyType = 'Residential'
+  switch (propNum) {
+    case '1':
+      propertyType = 'Commercial'
+      break
+    case '2':
+      propertyType = 'Farm'
+      break
+    case '3':
+      propertyType = 'Lots and Land'
+      break
+    case '4':
+      propertyType = 'Multi-Family'
+      break
+    case '5':
+      propertyType = 'Residential'
+      break
+  }
+  return {
+    type: 'SUB_PROP_TYPE',
+    propertyType
+  }
+}
+
 const getToken = () => {
   return Math.random().toString(36).substring(7)
 }

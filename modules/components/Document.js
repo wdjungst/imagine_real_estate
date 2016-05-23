@@ -8,6 +8,7 @@ const shims = `
   window.Promise || document.write('<script src="/Promise.js"><\\/script>');
   window.fetch || document.write('<script src="/fetch.js"><\\/script>');
   window.$ || document.write('<script src="/jquery/dist/jquery.min.js"><\\/script>');
+  window.materialize || document.write('<script src="/Materialize/bin/materialize.js"><\\/script>');
 `
 
 const Document = React.createClass({
