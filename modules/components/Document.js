@@ -9,6 +9,7 @@ const shims = `
   window.fetch || document.write('<script src="/fetch.js"><\\/script>');
   window.$ || document.write('<script src="/jquery/dist/jquery.min.js"><\\/script>');
   window.materialize || document.write('<script src="/Materialize/bin/materialize.js"><\\/script>');
+  window.sideNav || document.write('<script src="/Materialize/js/sideNav.js"><\\/script>');
 `
 
 const Document = React.createClass({

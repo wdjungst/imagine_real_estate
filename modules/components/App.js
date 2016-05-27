@@ -11,6 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.handleLogin = this.handleLogin.bind(this)
+    this.showLogo = this.showLogo.bind(this)
   }
 
   componentWillMount() {
@@ -19,6 +20,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    window.$('.button-collapse').sideNav({ closeOnClick: true })
   }
 
   handleLogin() {
@@ -27,6 +29,18 @@ class App extends React.Component {
       this.props.history.push('/')
     } else {
       this.props.history.push('/login')
+    }
+  }
+
+  showLogo() {
+    if (this.props.location.pathname === "/")
+        return null
+    else {
+      return(
+        <Link to="/" className="brand-logo">
+          <img src={whiteLogo} className={smallLogo} />
+        </Link>
+      )
     }
   }
 
@@ -45,17 +59,26 @@ class App extends React.Component {
         <div className="navbar-fixed">
           <nav>
             <div className={`${blueBg} nav-wrapper`}>
-              <Link to="/" className="brand-logo hide-on-med-and-down">
-                <img src={whiteLogo} className={smallLogo} />
-              </Link>
-              <ul id="nav-mobile" className={`right`}>
-                <NavItem className="hide-on-med-and-down"><a href="tel:801-205-7000">(801) 205-7000</a></NavItem>
+              {this.showLogo()}
+              <ul id="nav-mobile" className={`right hide-on-med-and-down`}>
+                <NavItem><a href="tel:801-205-7000">(801) 205-7000</a></NavItem>
                 <NavItem><IndexLink className={yellow} to="/">Home</IndexLink></NavItem>
                 <NavItem><Link className={yellow} to="/search_homes">Search Homes</Link></NavItem>
                 <NavItem><Link className={yellow} to="/agents">Find An Agent</Link></NavItem>
                 {dashboard()}
-                <NavItem className="hide-on-med-and-down" onClick={this.handleLogin}><i className="fa fa-gear"></i></NavItem>
+                <NavItem onClick={this.handleLogin}><i className="fa fa-gear"></i></NavItem>
               </ul>
+              <ul id="slide-out" className={`side-nav blue`}>
+                <NavItem><a className={yellow} href="tel:801-205-7000">(801) 205-7000</a></NavItem>
+                <NavItem><IndexLink className={yellow} to="/">Home</IndexLink></NavItem>
+                <NavItem><Link className={yellow} to="/search_homes">Search Homes</Link></NavItem>
+                <NavItem><Link className={yellow} to="/agents">Find An Agent</Link></NavItem>
+                {dashboard()}
+                <NavItem onClick={this.handleLogin}><i className={`fa fa-gear ${yellow}`}></i></NavItem>
+              </ul>
+              <a href="#" data-activates="slide-out" className="button-collapse">
+                <i className="material-icons">menu</i>
+              </a>
             </div>
           </nav>
         </div>
