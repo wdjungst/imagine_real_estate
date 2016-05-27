@@ -1,1 +1,4 @@
 html {font-family: 'Lato', sans-serif;}
+.Select-input, .Select-input > input, .Search {
+  width: 100% !important;
+}
