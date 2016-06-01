@@ -3,6 +3,7 @@ import { Row, Card, Input } from 'react-materialize'
 import { connect } from 'react-redux'
 import { search } from '../actions'
 import Select from 'react-select'
+import { thumb } from './styles.css'
 import {
   cities,
   counties,
@@ -20,6 +21,7 @@ class SearchBox extends React.Component {
     super(props)
     this.searchType = this.searchType.bind(this)
     this.subPropTypes = this.subPropTypes.bind(this)
+    this.contact = this.contact.bind(this)
     this.state = { searchType: '', showResults: false }
   }
 
@@ -255,11 +257,40 @@ class SearchBox extends React.Component {
        }
   }
 
+  contact() {
+    if (this.props.currentAgent._id) {
+      let agent = this.props.currentAgent
+      return (
+        <div className="col s8">
+          <div className="col s8">
+            <h6 className="center">{`${agent.firstName} ${agent.lastName}`}</h6>
+            <h6 className="center">{agent.phone}</h6>
+            <p className="center">
+              <a href={`mailto:${agent.email}`} className="center">{agent.email}</a>
+            </p>
+          </div>
+          <div className="col s2">
+            <img className={thumb} src={`https://dl.dropboxusercontent.com/s/${agent.imgUrl}?raw=1`} />
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <div className="col s8">
+          <p className="center">Imagine Real Estate</p>
+          <p className="center">(801) 205-7000</p>
+          <p className="center"><a href="mailto:janet@imagineutah.com">Contact</a></p>
+        </div>
+      )
+    }
+  }
+
   showResults() {
     return (
       <div>
         <div style={this.coverStyle()}>
-          <button className="btn center" onClick={this.toggleResults.bind(this)}>New Search</button>
+          <button className="btn center col s4" onClick={this.toggleResults.bind(this)}>New Search</button>
+          {this.contact()}
         </div>
         <iframe id="frame" style={{ width: '100%', height: '80vh' }} src={this.state.results} />
       </div>
@@ -277,7 +308,7 @@ class SearchBox extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { subTypes: state.search.subTypes, propertyType: state.search.propertyType }
+  return { subTypes: state.search.subTypes, propertyType: state.search.propertyType, currentAgent: state.agents }
 }
 
 export default connect(mapStateToProps)(SearchBox)

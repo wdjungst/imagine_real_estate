@@ -55,6 +55,13 @@ export const signup = (email, pass, history) => {
   }
 }
 
+export const setAgent = ({ ...agent }, history) => {
+  return (dispatch) => {
+    history.push('/search_homes')
+    dispatch({ type: 'SET_AGENT', agent })
+  }
+}
+
 export const search = (propNum) => {
   let propertyType = 'Residential'
   switch (propNum) {

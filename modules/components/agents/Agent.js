@@ -5,6 +5,7 @@ import { profileImg, logoImg, downTen } from './styles.css'
 import logo from '../logoBlue.png'
 import ContactForm from '../contact/ContactForm'
 import ring from '../ring.svg'
+import { setAgent } from '../actions'
 
 class Agent extends React.Component {
   constructor(props) {
@@ -127,6 +128,9 @@ class Agent extends React.Component {
             </div>
             <div className="center">
               <a href={`mailto:${agent.email}`}>{agent.email}</a>
+            </div>
+            <div className="center">
+              <button className="btn" onClick={() => this.props.dispatch(setAgent(agent, this.props.history))}>Search Homes</button>
             </div>
           </div>
           <div className={`col s12 m4 offset-m1`}>
