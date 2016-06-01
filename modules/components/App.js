@@ -33,8 +33,8 @@ class App extends React.Component {
   }
 
   showLogo() {
-    if (this.props.location.pathname === "/")
-        return null
+    if (this.props.location.pathname === '/')
+      return null
     else {
       return(
         <Link to="/" className="brand-logo">
