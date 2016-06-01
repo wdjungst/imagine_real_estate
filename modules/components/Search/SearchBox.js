@@ -253,7 +253,7 @@ class SearchBox extends React.Component {
          return { position: 'absolute', top: '54px', width: '96%', height: '100px', background: 'white' }
        }
       else {
-         return { position: 'absolute', top: '65px', width: '100%', height: '120px', background: 'white' }
+         return { position: 'absolute', top: '65px', width: '100%', height: '115px', background: 'white' }
        }
   }
 
