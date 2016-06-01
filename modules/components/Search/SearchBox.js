@@ -178,7 +178,7 @@ class SearchBox extends React.Component {
             <i className="material-icons right">send</i>
           </button>
           <Row>
-            <div style={{ overflowY: 'scroll', maxHeight: '500px' }} >
+            <div style={{ overflowY: 'scroll', maxHeight: '80vh' }} >
               <form ref="searchForm" onSubmit={(e) => this.search(e)}>
                 <Input s={12} name="pt" type="select" label="Property Type" onChange={this.handleChange.bind(this)}>
                   <option selected={this.selected('Commercial')} value="1">Commercial</option>
@@ -251,7 +251,7 @@ class SearchBox extends React.Component {
          return { position: 'absolute', top: '54px', width: '96%', height: '100px', background: 'white' }
        }
       else {
-         return { position: 'absolute', top: '65px', width: '96%', height: '77px', background: 'white' }
+         return { position: 'absolute', top: '65px', width: '96%', height: '78px', background: 'white' }
        }
   }
 
