@@ -265,9 +265,9 @@ class SearchBox extends React.Component {
           <div className="col s8">
             <h6 className="center">{`${agent.firstName} ${agent.lastName}`}</h6>
             <h6 className="center">{agent.phone}</h6>
-            <p className="center">
+            <h6 className="center">
               <a href={`mailto:${agent.email}`} className="center">{agent.email}</a>
-            </p>
+            </h6>
           </div>
           <div className="col s2">
             <img className={thumb} src={`https://dl.dropboxusercontent.com/s/${agent.imgUrl}?raw=1`} />
@@ -277,9 +277,9 @@ class SearchBox extends React.Component {
     } else {
       return (
         <div className="col s8">
-          <p className="center">Imagine Real Estate</p>
-          <p className="center">(801) 205-7000</p>
-          <p className="center"><a href="mailto:janet@imagineutah.com">Contact</a></p>
+          <h6 className="center">Imagine Real Estate</h6>
+          <h6 className="center">(801) 205-7000</h6>
+          <h6 className="center"><a href="mailto:janet@imagineutah.com">Contact</a></h6>
         </div>
       )
     }
