@@ -36,25 +36,25 @@ class Dashboard extends React.Component {
     let lastName = this.refs.lastName
     let email = this.refs.email
     let bio = this.refs.bio
-    let agentBio = bio.value
-    let phone = this.refs.phone
-    let url = this.refs.url
+    let agentBio = this.refs.bio
+    let phone = this.refs.agentPhone
+    let agentUrl = this.refs.agentUrl
     let imgUrl = this.refs.imgUrl
     e.preventDefault()
     $.ajax({
       url: '/api/agents',
       type: 'POST',
       contentType: 'application/json',
-      data: JSON.stringify({ firstName: firstName.value, lastName: lastName.value, email: email.value, bio: agentBio, phone: phone.value, url: url.value, imgUrl: imgUrl.value })
+      data: JSON.stringify({ firstName: firstName.value, lastName: lastName.value, email: email.value, bio: agentBio.value, phone: phone.value, url: agentUrl.value, imgUrl: imgUrl.value })
     }).done( () => {
+      firstName.value = ''
+      lastName.value = ''
+      email.value = ''
+      bio.value = ''
+      phone.value = ''
+      agentUrl.value = ''
+      imgUrl.value = ''
       this.getAgents()
-    }).always( () => {
-      this.refs.firstName.value = ''
-      this.refs.lastName.value = ''
-      this.refs.email.value = ''
-      this.refs.bio.value = ''
-      this.refs.phone.value = ''
-      this.refs.url.value = ''
     })
   }
 
@@ -71,8 +71,8 @@ class Dashboard extends React.Component {
   }
 
   filterUrl() {
-    let url = this.refs.url
-    let str = this.refs.url.value
+    let url = this.refs.agentUrl
+    let str = this.refs.agentUrl.value
     url.value = str.replace(/[^a-z0-9]/gi,'')
   }
 
@@ -156,8 +156,8 @@ class Dashboard extends React.Component {
               <input placeholder="First Name" ref="firstName" />
               <input placeholder="Last Name" ref="lastName" />
               <input placeholder="Email" ref="email" />
-              <input onChange={this.filterUrl} placeholder="url" ref="url" required={true} />
-              <input placeholder="(801) 555-5555" ref="phone" />
+              <input onChange={this.filterUrl} placeholder="url" ref="agentUrl" required={true} />
+              <input placeholder="(801) 555-5555" ref="agentPhone" />
               <input placeholder="jeakin.jpg" ref="imgUrl" />
               <textarea ref="bio"></textarea>
               <button className="btn" type="submit">Add</button>
