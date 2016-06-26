@@ -13,6 +13,7 @@
    "comma-dangle": 1,
    "no-debugger": 1,
    "no-console": 1,
+   "indent": 1
  },
  "plugins": [
    "react"

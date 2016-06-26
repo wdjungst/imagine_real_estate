@@ -156,7 +156,7 @@ class SearchBox extends React.Component {
 
   search() {
     let query = '?idxID=a072&per=25'
-    let data = $(this.refs.searchForm).serializeArray()
+    let data = window.$(this.refs.searchForm).serializeArray()
     let url ='http://imagineutah.idxbroker.com/idx/results/listings'
     data.map( field => {
       query += `&${field.name}=${field.value}`
@@ -253,7 +253,7 @@ class SearchBox extends React.Component {
          return { position: 'absolute', top: '54px', width: '96%', height: '100px', background: 'white' }
        }
       else {
-         return { position: 'absolute', top: '65px', width: '100%', height: '115px', background: 'white' }
+         return { position: 'absolute', top: '65px', width: '98.5%', height: '117px', background: 'white' }
        }
   }
 
