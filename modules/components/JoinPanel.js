@@ -136,13 +136,13 @@ class JoinPanel extends Component {
                   <li>
                     <div className={`collapsible-header blue darken-3 ${styles.yellow}`}><i className={`fa fa-support ${styles.yellow} ${styles.iconSm}`}></i>Great Support</div>
                     <div className="collapsible-body white-text">
-                      <p>At IMAGINE, serving the Individual is our #1 PRIORITY and we are available to ASSIST at ANYTIME!!  With over 50 years of combined experience in the industry, the IMAGINE Management team understands the importance of knowing each agent and are COMMITTED to helping them succeed!   Our logo is a reminder of that commitment–the colors are fixed with theexception of the I, which is just as individual as each of our agents and their business.<br/><br/>So what color is your I?  It can be whatever you IMAGINE!   Join us and choose a color that inspires and motivates you to exceed beyond your own expectations! </p>
+                      <p>At IMAGINE, serving the Individual is our #1 PRIORITY and we are available to ASSIST at ANYTIME!!  With over 50 years of combined experience in the industry, the IMAGINE Management team understands the importance of knowing each agent and are COMMITTED to helping them succeed!   Our logo is a reminder of that commitment–the colors are fixed with the exception of the i, which is just as individual as each of our agents and their business.<br/><br/>So what color is your i?  It can be whatever you IMAGINE!   Join us and choose a color that inspires and motivates you to exceed beyond your own expectations! </p>
                     </div>
                   </li>
                   <li>
                     <div className={`collapsible-header blue darken-3 ${styles.yellow}`}><i className={`fa fa-dollar ${styles.yellow} ${styles.iconSm}`}></i>Great Commissions</div>
                     <div className="collapsible-body white-text">
-                      <p>Looking for a company with Great Commission Splits and Great Service?  Well, you’ve found it!<br/><br/> At IMAGINE Real Estate you will enjoy a beautiful office environment, lower overall fees, the flexibility to run your business the way you choose and full service-- which includes 24/7 access to broker and staff!  It’s a Win-Win!<br/><br/>Call today and IMAGINE the possibilities of becoming part of our team!<br/><br/>$490 Transaction Fee<br/>$32 E/O Fee<br/><br/>Recruiting Commission Paid for Every Agent You Recruit!</p>
+                      <p>Looking for a company with Great Commission Splits and Great Service?  Well, you’ve found it!<br/><br/> At IMAGINE Real Estate you will enjoy a beautiful office environment, lower overall fees, the flexibility to run your business the way you choose and full service-- which includes 24/7 access to broker and staff!  It’s a Win-Win!<br/><br/>Call today and IMAGINE the possibilities of becoming part of our team!<br/><br/>$490 Transaction Fee<br/>$32 E/O Fee<br/><br/>No Monthly Fees<br/>No Splits<br/>No hidden charges<br/><br/>Recruiting Commission Paid for Every Agent You Recruit!</p>
                     </div>
                   </li>
                   <li>
