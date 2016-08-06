@@ -153,7 +153,7 @@ class JoinPanel extends Component {
                   </li>
                 </ul>
                 <h3 className="center white-text">Choose Your i</h3>
-                <div className="carousel" style={{ height: '200px'}}>
+                <div className="carousel" style={{ height: '200px' }}>
                   {slides}
                 </div>
               </div>

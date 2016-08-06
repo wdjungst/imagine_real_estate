@@ -155,7 +155,10 @@ class SearchBox extends React.Component {
   }
 
   search() {
-    let query = '?idxID=a072&per=25'
+    debugger
+    let agentHeaderID = this.props.currentAgent.agentHeaderID
+    let agentHeader = agentHeaderID ? `&agentHeaderID=${agentHeaderID}` : ''
+    let query = `?idxID=a072&per=25${agentHeader}`
     let data = window.$(this.refs.searchForm).serializeArray()
     let url ='http://imagineutah.idxbroker.com/idx/results/listings'
     data.map( field => {

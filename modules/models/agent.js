@@ -8,7 +8,8 @@ let Agent = new Schema({
   phone: String,
   bio: String,
   url: String,
-  imgUrl: String
+  imgUrl: String,
+  agentHeaderID: String
 })
 
 
