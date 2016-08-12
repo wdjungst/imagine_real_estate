@@ -93,8 +93,10 @@ class Agent extends React.Component {
         bio.push(
           <div>
             <span>
+              <strong>
               {entry}
               <br />
+              </strong>
             </span>
           </div>
         )
