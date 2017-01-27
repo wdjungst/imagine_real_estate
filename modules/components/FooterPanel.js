@@ -16,7 +16,6 @@ class FooterPanel extends Component {
               <div className="col l4 offset-l2 s12">
                 <h5 className="white-text">Links</h5>
                 <ul>
-                  <li><Link to="search_homes" className="grey-text text-lighten-3" href="#!">Search Homes</Link></li>
                   <li><Link to="agents" className="grey-text text-lighten-3" href="#!">Find an Agent</Link></li>
                   <li><Link to="due_dilligence" className="grey-text text-lighten-3" href="#!">Due Dillegence</Link></li>
                   <li><Link to="contact" className="grey-text text-lighten-3" href="#!">Contact Us</Link></li>
