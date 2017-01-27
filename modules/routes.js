@@ -7,7 +7,7 @@ import App from './components/App'
 import Home from './components/Home'
 import ContactImagine from './components/contact/ContactImagine'
 import NoMatch from './components/NoMatch'
-import loadSearch from 'bundle?lazy!./components/Search'
+//import loadSearch from 'bundle?lazy!./components/Search'
 import Dashboard from './components/admin/Dashboard'
 import Agent from './components/agents/Agent'
 import Agents from './components/agents/Agents'
@@ -35,7 +35,7 @@ export default (
       <Route path="dashboard" component={UserIsAuthenticated(Dashboard)}/>
       <Route path="agents" component={Agents} />
       <Route path="agents/:name" component={Agent} />
-      <Route path="search_homes" getComponent={lazy(loadSearch)}/>
+      {/*<Route path="search_homes" getComponent={lazy(loadSearch)}/> */}
       <Route path="due_dilligence" component={DueDilligence} />
       <Route path="contact" component={ContactImagine} />
       <Route path="signup/IV4HLiqA5OXU9VNTcp6" component={SignUp} />

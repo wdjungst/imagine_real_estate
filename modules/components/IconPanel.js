@@ -8,15 +8,15 @@ class IconPanel extends Component {
     return(
       <div className={`${styles.linkRow}`}>
         <Row>
-          <Col s={6} m={3}>
+        { /*<Col s={6} m={3}>
             <div className={`${styles.iconContainer} center`}>
               <Link to="/search_homes">
                 <i className={`${styles.icon} ${styles.yellow} fa fa-map-marker`}></i>
                 <p className={`${styles.yellow} center`}>SEARCH HOMES</p>
               </Link>
             </div>
-          </Col>
-          <Col s={6} m={3}>
+          </Col> */}
+          <Col s={4}>
             <div className={`${styles.iconContainer} center`}>
               <Link to="/agents">
                 <i className={`${styles.icon} ${styles.yellow} fa fa-search`}></i>
@@ -24,7 +24,7 @@ class IconPanel extends Component {
               </Link>
             </div>
           </Col>
-          <Col s={6} m={3}>
+          <Col s={4}>
             <div className={`${styles.iconContainer} center`}>
               <Link to="due_dilligence">
                 <i className={`${styles.icon} ${styles.yellow} fa fa-check`}></i>
@@ -32,7 +32,7 @@ class IconPanel extends Component {
               </Link>
             </div>
           </Col>
-          <Col s={6} m={3}>
+          <Col s={4}>
             <div className={`${styles.iconContainer} center`}>
               <Link to="contact">
                 <i className={`${styles.icon} ${styles.yellow} fa fa-envelope`}></i>

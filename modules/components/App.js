@@ -63,7 +63,7 @@ class App extends React.Component {
               <ul id="nav-mobile" className={`right hide-on-med-and-down`}>
                 <NavItem><a href="tel:801-205-7000">(801) 205-7000</a></NavItem>
                 <NavItem><IndexLink className={yellow} to="/">Home</IndexLink></NavItem>
-                <NavItem><Link className={yellow} to="/search_homes">Search Homes</Link></NavItem>
+                {/*<NavItem><Link className={yellow} to="/search_homes">Search Homes</Link></NavItem> */}
                 <NavItem><Link className={yellow} to="/agents">Find An Agent</Link></NavItem>
                 {dashboard()}
                 <NavItem onClick={this.handleLogin}><i className="fa fa-gear"></i></NavItem>
@@ -71,7 +71,7 @@ class App extends React.Component {
               <ul id="slide-out" className={`side-nav blue`}>
                 <NavItem><a className={yellow} href="tel:801-205-7000">(801) 205-7000</a></NavItem>
                 <NavItem><IndexLink className={yellow} to="/">Home</IndexLink></NavItem>
-                <NavItem><Link className={yellow} to="/search_homes">Search Homes</Link></NavItem>
+                {/*<NavItem><Link className={yellow} to="/search_homes">Search Homes</Link></NavItem> */}
                 <NavItem><Link className={yellow} to="/agents">Find An Agent</Link></NavItem>
                 {dashboard()}
                 <NavItem onClick={this.handleLogin}><i className={`fa fa-gear ${yellow}`}></i></NavItem>
