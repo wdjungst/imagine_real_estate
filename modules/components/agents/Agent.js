@@ -131,9 +131,6 @@ class Agent extends React.Component {
             <div className="center">
               <a href={`mailto:${agent.email}`}>{agent.email}</a>
             </div>
-            <div className="center">
-              <button className="btn" onClick={() => this.props.dispatch(setAgent(agent, this.props.history))}>Search Homes</button>
-            </div>
           </div>
           <div className={`col s12 m4 offset-m1`}>
             <div className="center">
