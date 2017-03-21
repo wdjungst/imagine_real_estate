@@ -30,7 +30,7 @@ class Agents extends React.Component {
               <h5 className="center">{name}</h5>
               <div className={`row ${downTen}`}>
                 <div className="col s3">
-                  <img className={`${thumb} responsive-img circle`} src={`https://dl.dropboxusercontent.com/s/${agent.imgUrl}`} />
+                  <img className={`${thumb}`} src={`https://dl.dropboxusercontent.com/s/${agent.imgUrl}`} />
                 </div>
                 <div className="col s9">
                   <h5>{agent.phone}</h5>
