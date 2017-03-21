@@ -40,12 +40,13 @@ class Dashboard extends React.Component {
     let phone = this.refs.agentPhone
     let agentUrl = this.refs.agentUrl
     let imgUrl = this.refs.imgUrl
+    let website = this.state.website
     e.preventDefault()
     $.ajax({
       url: '/api/agents',
       type: 'POST',
       contentType: 'application/json',
-      data: JSON.stringify({ firstName: firstName.value, lastName: lastName.value, email: email.value, bio: agentBio.value, phone: phone.value, url: agentUrl.value, imgUrl: imgUrl.value })
+      data: JSON.stringify({ firstName: firstName.value, lastName: lastName.value, email: email.value, bio: agentBio.value, phone: phone.value, url: agentUrl.value, imgUrl: imgUrl.value, website: website.value })
     }).done( () => {
       firstName.value = ''
       lastName.value = ''
@@ -54,6 +55,7 @@ class Dashboard extends React.Component {
       phone.value = ''
       agentUrl.value = ''
       imgUrl.value = ''
+      website.value = ''
       this.getAgents()
     })
   }
@@ -159,6 +161,7 @@ class Dashboard extends React.Component {
               <input onChange={this.filterUrl} placeholder="url" ref="agentUrl" required={true} />
               <input placeholder="(801) 555-5555" ref="agentPhone" />
               <input placeholder="jeakin.jpg" ref="imgUrl" />
+              <input placeholder="http://mywebsite.com" ref="website" />
               <textarea ref="bio"></textarea>
               <button className="btn" type="submit">Add</button>
             </form>

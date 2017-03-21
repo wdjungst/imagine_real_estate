@@ -131,6 +131,11 @@ class Agent extends React.Component {
             <div className="center">
               <a href={`mailto:${agent.email}`}>{agent.email}</a>
             </div>
+            { agent.website ?
+              <div className="center">
+                <a href={agent.website} target="_blank">{agent.website}</a>
+              </div> : null
+            }
           </div>
           <div className={`col s12 m4 offset-m1`}>
             <div className="center">

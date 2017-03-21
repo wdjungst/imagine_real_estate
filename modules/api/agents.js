@@ -9,7 +9,8 @@ export const addAgent = (req, res) => {
     phone: req.body.phone,
     bio: req.body.bio,
     url: req.body.url.trim(),
-    imgUrl: imgUrl
+    imgUrl: imgUrl,
+    website: req.body.website
   }).save( (err, agent) => {
     if (err) {
       return res.status(500).json(err.message)
