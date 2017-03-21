@@ -72,7 +72,8 @@ class Agent extends React.Component {
         email: agent.email.value,
         bio: bio.value,
         url: agent.url.value,
-        imgUrl: agent.imgUrl.value
+        imgUrl: agent.imgUrl.value,
+        website: agent.website.value
       })
     }).done( () => {
       this.props.history.push('/dashboard')
@@ -182,6 +183,10 @@ class Agent extends React.Component {
           <div className="col s12">
             <label htmlFor="img_url">Img Url</label>
             <input id="img_url" placeholder={agent.imgUrl} ref="imgUrl" defaultValue={agent.imgUrl} />
+          </div>
+          <div className="col s12">
+            <label htmlFor="website">Website</label>
+            <input id="website" placeholder={agent.website} ref="website" defaultValue={agent.website} />
           </div>
           <div className="col s12">
             <label htmlFor="bio">Bio</label>

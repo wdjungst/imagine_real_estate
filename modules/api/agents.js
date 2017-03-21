@@ -54,7 +54,8 @@ export const updateAgent = (req, res) => {
     phone: req.body.phone,
     bio: req.body.bio,
     url: req.body.url,
-    imgUrl: imgUrl
+    imgUrl: imgUrl,
+    website: req.body.website
   }
   Agent.findOneAndUpdate(query, update, {}, (err, agent) => {
     if (err) {
