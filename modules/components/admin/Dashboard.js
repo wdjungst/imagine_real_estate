@@ -40,7 +40,7 @@ class Dashboard extends React.Component {
     let phone = this.refs.agentPhone
     let agentUrl = this.refs.agentUrl
     let imgUrl = this.refs.imgUrl
-    let website = this.state.website
+    let website = this.refs.website
     e.preventDefault()
     $.ajax({
       url: '/api/agents',
