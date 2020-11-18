@@ -18,12 +18,13 @@ class Agent extends React.Component {
   }
 
   componentWillMount() {
+    const id = this.props.location.search.split('id=')[1]
     let agentUrl = this.props.params.name.toLowerCase()
     $.ajax({
       url: `/api/agents/${agentUrl}`,
       type: 'GET',
       contentType: 'application/json',
-      data: { url: agentUrl }
+      data: { url: agentUrl, id: id }
     }).done( agent => {
       this.setState({ agent: agent, isLoading: false })
     }).fail( () => {

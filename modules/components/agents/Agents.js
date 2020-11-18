@@ -16,8 +16,20 @@ class Agents extends React.Component {
       type: 'GET',
       contentType: 'application/json'
     }).done( agents => {
-      this.setState({ agents: agents, isLoading: false })
+      const formattedAgents = agents.map( agent => {
+        return {
+          ...agent,
+          firstName: agent.firstname,
+          lastName: agent.lastname,
+          url: agent.url[0] === '/' ? agent.url.substring(1) : agent.url
+        }
+      })
+      this.setState({ agents: formattedAgents, isLoading: false })
     })
+  }
+
+  componentDidUpdate() {
+    console.log(this.state.agents)
   }
 
   render() {
@@ -40,7 +52,7 @@ class Agents extends React.Component {
             </div>
             <div className="card-action">
               <div className="center">
-                <Link to={`/agents/${agent.url}`}>View Profile</Link>
+                <Link to={`/agents/${agent.url}?id=${agent.id}`}>View Profile</Link>
               </div>
             </div>
           </div>
