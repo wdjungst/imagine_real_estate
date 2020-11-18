@@ -64,7 +64,7 @@ class App extends React.Component {
                 <NavItem><a href="tel:801-205-7000">(801) 205-7000</a></NavItem>
                 <NavItem><IndexLink className={yellow} to="/">Home</IndexLink></NavItem>
                 {/*<NavItem><Link className={yellow} to="/search_homes">Search Homes</Link></NavItem> */}
-                <NavItem><Link className={yellow} to="/agents">Find An Agent</Link></NavItem>
+                {/* <NavItem><Link className={yellow} to="/agents">Find An Agent</Link></NavItem> */}
                 {dashboard()}
                 <NavItem onClick={this.handleLogin}><i className="fa fa-gear"></i></NavItem>
               </ul>
@@ -72,7 +72,7 @@ class App extends React.Component {
                 <NavItem><a className={yellow} href="tel:801-205-7000">(801) 205-7000</a></NavItem>
                 <NavItem><IndexLink className={yellow} to="/">Home</IndexLink></NavItem>
                 {/*<NavItem><Link className={yellow} to="/search_homes">Search Homes</Link></NavItem> */}
-                <NavItem><Link className={yellow} to="/agents">Find An Agent</Link></NavItem>
+                {/* <NavItem><Link className={yellow} to="/agents">Find An Agent</Link></NavItem> */}
                 {dashboard()}
                 <NavItem onClick={this.handleLogin}><i className={`fa fa-gear ${yellow}`}></i></NavItem>
               </ul>
