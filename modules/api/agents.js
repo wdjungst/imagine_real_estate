@@ -5,12 +5,15 @@ export const getAgents = (request, response) => {
   pool.query(
     'SELECT * FROM agents',
     (error, result) => {
+      console.log('ERROR:', error)
+      console.log('RESULT', result)
       if (error) {
         console.log('ERROR:', error)
         // throw(error)
       }
 
-      response.status(200).json(result.rows)
+      const agents = result ? result.rows : []
+      response.status(200).json(agents)
     })
 }
 
