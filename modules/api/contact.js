@@ -7,9 +7,9 @@ export const sendContact = (req, res) => {
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
-    secure: false,
+    requireTLS: true,
     auth: {
-      uesr: `${user}@imagineutah.com`,
+      uesr: user,
       password: password
     }
   })
