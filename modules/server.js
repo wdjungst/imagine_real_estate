@@ -4,7 +4,7 @@ import { RouterContext } from 'react-router'
 import Document from '../modules/components/Document'
 import routes from '../modules/routes'
 
-import mongoose from 'mongoose'
+// import mongoose from 'mongoose'
 import passport from 'passport'
 import local from 'passport-local'
 import session from 'express-session'
@@ -36,11 +36,11 @@ passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
-let mongoUri = process.env.MONGODB_URI ||
-  process.env.MONGOHQ_URL ||
-  'mongodb://localhost/imagine-realestate'
-
-mongoose.connect(mongoUri)
+// let mongoUri = process.env.MONGODB_URI ||
+//   process.env.MONGOHQ_URL ||
+//   'mongodb://localhost/imagine-realestate'
+//
+// mongoose.connect(mongoUri)
 
 server.start()
 
