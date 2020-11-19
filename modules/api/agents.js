@@ -1,11 +1,13 @@
 import { pool } from '../../config'
 
 export const getAgents = (request, response) => {
+  console.log('Starting get Agents request')
   pool.query(
     'SELECT * FROM agents',
     (error, result) => {
       if (error) {
-        throw(error)
+        console.log('ERROR:', error)
+        // throw(error)
       }
 
       response.status(200).json(result.rows)
