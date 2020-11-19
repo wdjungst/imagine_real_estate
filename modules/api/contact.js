@@ -3,14 +3,17 @@ import nodemailer from 'nodemailer'
 export const sendContact = (req, res) => {
   let user = process.env.GMAIL_USER
   let password = process.env.GMAIL_PASSWORD
+  console.log(user)
+  console.log(password)
   // let transporter = nodemailer.createTransport('smtps://' + user + '%40imagineutah.com:' + password + '@smtp.gmail.com')
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
+    secure: false,
     requireTLS: true,
     auth: {
-      uesr: user,
-      password: password
+      user: user,
+      pass: password
     }
   })
   let mailOptions = {
