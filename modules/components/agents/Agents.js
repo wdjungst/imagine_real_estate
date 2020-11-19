@@ -21,6 +21,7 @@ class Agents extends React.Component {
           ...agent,
           firstName: agent.firstname,
           lastName: agent.lastname,
+          imgUrl: agent.imgurl,
           url: agent.url[0] === '/' ? agent.url.substring(1) : agent.url
         }
       })
