@@ -19,6 +19,8 @@ class Agents extends React.Component {
       const formattedAgents = agents.map( agent => {
         return {
           ...agent,
+          firstName: agent.firstname,
+          lastName: agent.lastname,
           url: agent.url[0] === '/' ? agent.url.substring(1) : agent.url
         }
       })
