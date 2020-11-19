@@ -17,11 +17,11 @@ class Agents extends React.Component {
       contentType: 'application/json'
     }).done( agents => {
       const formattedAgents = agents.map( agent => {
+        console.log('AGENT', agent)
         return {
           ...agent,
           firstName: agent.firstname,
           lastName: agent.lastname,
-          imgUrl: agent.imgurl,
           url: agent.url[0] === '/' ? agent.url.substring(1) : agent.url
         }
       })
