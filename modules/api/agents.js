@@ -12,8 +12,7 @@ export const getAgents = (request, response) => {
         // throw(error)
       }
 
-      const agents = result ? result.rows : []
-      response.status(200).json(agents)
+      response.status(200).json(result.rows || [])
     })
 }
 
