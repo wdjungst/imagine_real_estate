@@ -26,7 +26,13 @@ class Agent extends React.Component {
       contentType: 'application/json',
       data: { url: agentUrl, id: id }
     }).done( agent => {
-      this.setState({ agent: agent, isLoading: false })
+      const formattedAgent = {
+        ...agent,
+        firstName: agent.firstname,
+        lastName: agent.lastname,
+        imgUrl: agent.imgurl
+      }
+      this.setState({ agent: formattedAgent, isLoading: false })
     }).fail( () => {
       if (this.props.auth)
         this.props.history.push('/dashboard')
