@@ -5,11 +5,8 @@ export const getAgents = (request, response) => {
   pool.query(
     'SELECT * FROM agents',
     (error, result) => {
-      console.log('ERROR:', error)
-      console.log('RESULT', result)
       if (error) {
         console.log('ERROR:', error)
-        // throw(error)
       }
 
       response.status(200).json(result.rows || [])
@@ -38,9 +35,9 @@ export const addAgent = (request, response) => {
 }
 
 export const getAgent = (request, response) => {
-  const { id } = request.query
+  const { url } = request.query
   pool.query(
-    `SELECT * FROM agents where id = ${id} LIMIT 1`, (error, result) => {
+    `SELECT * FROM agents where url = '${url}' LIMIT 1`, (error, result) => {
       if (error) {
         throw error
       }
