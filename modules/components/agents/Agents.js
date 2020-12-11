@@ -16,7 +16,10 @@ class Agents extends React.Component {
       type: 'GET',
       contentType: 'application/json'
     }).done( agents => {
-      const formattedAgents = agents.map( agent => {
+      const featuredAgents = agents.filter( agent => agent.featured )
+      const rest = agents.filter( agent => !agent.featured )
+      const allAgents = [ ...featuredAgents, ...rest ]
+      const formattedAgents = allAgents.map( agent => {
         return {
           ...agent,
           firstName: agent.firstname,

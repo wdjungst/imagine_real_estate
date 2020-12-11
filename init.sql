@@ -2,6 +2,7 @@ CREATE TABLE agents (
   ID SERIAL PRIMARY KEY,
   firstName VARCHAR(255) NOT NULL,
   lastName VARCHAR(255) NOT NULL,
+  featured BOOLEAN DEFAULT false,
   email VARCHAR(255) NOT NULL,
   phone VARCHAR(255) NOT NULL,
   bio TEXT,
