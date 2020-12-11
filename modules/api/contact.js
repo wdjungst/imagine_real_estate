@@ -1,5 +1,9 @@
 import nodemailer from 'nodemailer'
 
+export const getRecaptcha = (req, res) => {
+  return res.status(200).json(process.env.RECAPTCHA_SITE_KEY)
+}
+
 export const sendContact = (req, res) => {
   let user = process.env.GMAIL_USER
   let password = process.env.GMAIL_PASSWORD

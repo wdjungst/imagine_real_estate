@@ -9,35 +9,57 @@ class ContactForm extends React.Component {
     this.contact = this.contact.bind(this)
     this.button = this.button.bind(this)
     this.state = { msg: '', error: false, isSubmitting: false }
+    this.igloo
+  }
+
+  componentDidMount() {
+    $.ajax({
+      url: '/api/contact',
+      type: 'get'
+    }).done( token => {
+      this.igloo = token
+      const recaptcha = document.createElement('script')
+      recaptcha.src = `https://www.google.com/recaptcha/api.js?render=${token}`
+      document.body.appendChild(recaptcha)
+    })
   }
 
   contact(e) {
     e.preventDefault()
-    let name = this.refs.name
-    let email = this.refs.email
-    let phone = this.refs.phone
-    let content = this.refs.content
-    this.setState({ isSubmitting: true })
-    $.ajax({
-      url: '/api/contact',
-      type: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify({
-        name: name.value,
-        email: email.value,
-        phone: phone.value,
-        content: content.value,
-        notify: this.props.email
-      })
-    }).done( () => {
-      this.refs.name.value = ''
-      this.refs.email.value = ''
-      this.refs.phone.value = ''
-      this.refs.content.value = ''
-      this.setState({ msg: 'Your message has been sent', error: false, isSubmitting: false })
-    }).fail( () => {
-      this.setState({ msg: 'Something went wrong.  Please try again', error: true, isSubmitting: false })
+    /* eslint-disable */
+    grecaptcha.ready( () => {
+      grecaptcha.execute(this.igloo, { action: 'submit' })
+        .then( token => {
+          let name = this.refs.name
+          let email = this.refs.email
+          let phone = this.refs.phone
+          let content = this.refs.content
+          this.setState({ isSubmitting: true })
+          $.ajax({
+            url: '/api/contact',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+              name: name.value,
+              email: email.value,
+              phone: phone.value,
+              content: content.value,
+              notify: this.props.email
+            })
+          }).done( () => {
+            this.refs.name.value = ''
+            this.refs.email.value = ''
+            this.refs.phone.value = ''
+            this.refs.content.value = ''
+            this.setState({ msg: 'Your message has been sent', error: false, isSubmitting: false })
+          }).fail( () => {
+            this.setState({ msg: 'Something went wrong.  Please try again', error: true, isSubmitting: false })
+          })
+          if (token) {
+          }
+        })
     })
+
   }
 
   button() {

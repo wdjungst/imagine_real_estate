@@ -15,7 +15,7 @@ import DueDilligence from './components/DueDilligence'
 import SignIn from './components/auth/SignIn'
 import { signIn, signUp } from './api/auth'
 import { addService, getServices, deleteService, updateService } from './api/services'
-import { sendContact } from './api/contact'
+import { sendContact, getRecaptcha } from './api/contact'
 import { addAgent, getAgents, getAgent, deleteAgent, updateAgent } from './api/agents'
 import SignUp from './components/auth/SignUp'
 import { UserAuthWrapper } from 'redux-auth-wrapper'
@@ -45,7 +45,7 @@ export default (
       <ServerRoute path="services" get={getServices} post={addService} >
         <ServerRoute path=":id" delete={deleteService} patch={updateService} />
       </ServerRoute>
-      <ServerRoute path="contact" post={sendContact} />
+      <ServerRoute path="contact" post={sendContact} get={getRecaptcha} />
       <ServerRoute path="auth">
         <ServerRoute path="signup" post={signUp} />
         <ServerRoute path="signin" post={signIn} />
