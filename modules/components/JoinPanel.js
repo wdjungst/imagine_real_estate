@@ -142,7 +142,7 @@ class JoinPanel extends Component {
                   <li>
                     <div className={`collapsible-header blue darken-3 ${styles.yellow}`}><i className={`fa fa-dollar ${styles.yellow} ${styles.iconSm}`}></i>Great Commissions</div>
                     <div className="collapsible-body white-text">
-                      <p>Looking for a company with Great Commission Splits and Great Service?  Well, you’ve found it!<br/><br/> At IMAGINE Real Estate you will enjoy a beautiful office environment, lower overall fees, the flexibility to run your business the way you choose and full service-- which includes 24/7 access to broker and staff!  It’s a Win-Win!<br/><br/>Call today and IMAGINE the possibilities of becoming part of our team!<br/><br/>$490 Transaction Fee<br/>$32 E/O Fee<br/><br/>No Monthly Fees<br/>No Splits<br/>No hidden charges<br/><br/>Recruiting Commission Paid for Every Agent You Recruit!</p>
+                      <p>Looking for a company with Great Commission Splits and Great Service?  Well, you’ve found it!<br/><br/> At IMAGINE Real Estate you will enjoy a beautiful office environment, lower overall fees, the flexibility to run your business the way you choose and full service-- which includes 24/7 access to broker and staff!  It’s a Win-Win!<br/><br/>Call today and IMAGINE the possibilities of becoming part of our team!<br/><br/>$490 Transaction Fee<br/>$40 E/O Fee<br/><br/>No Monthly Fees<br/>No Splits<br/>No hidden charges<br/></p>
                     </div>
                   </li>
                   <li>
