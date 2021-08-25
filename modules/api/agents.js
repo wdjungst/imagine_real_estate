@@ -14,15 +14,15 @@ export const getAgents = (request, response) => {
 }
 
 export const addAgent = (request, response) => {
+  const imgUrl = req.body.imgUrl ? req.body.imgUrl.trim() : 'g8ub1qa56ybzp0s/default.png'
   const {
     firstName,
     lastName,
     email,
     phone,
     bio = null,
-      url,
-    imgUrl = null,
-      agentHeaderId,
+    url,
+    agentHeaderId,
     website = null
   } = request.body
   pool.query(
@@ -62,6 +62,7 @@ export const deleteAgent = (request, response) => {
 }
 
 export const updateAgent = (request, response) => {
+  const imgUrl = req.body.imgUrl ? req.body.imgUrl.trim() : 'g8ub1qa56ybzp0s/default.png'
   const node = request.params['0']
   const parts = node.split('/')
   const id = parts[parts.length - 1]
@@ -72,7 +73,6 @@ export const updateAgent = (request, response) => {
     phone,
     bio,
     url,
-    imgUrl,
     website
   } = request.body
 
