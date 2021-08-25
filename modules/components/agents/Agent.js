@@ -41,9 +41,28 @@ class Agent extends React.Component {
     })
   }
 
+  urlify(text) {
+    const urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g
+    const splitText = text.split(' ')
+    return splitText.map(word => {
+      if (word.match(urlRegex)) {
+        const hasProtocol = word.match(/^https?/)
+        return (
+          <a
+            href={hasProtocol ? word : `https://${word}`}
+            target="_blank"
+          >
+            {word}
+          </a>
+        )
+      }
+      return <span>{word} </span>
+    })
+  }
+
   reformatBio(line) {
     if (!line) return
-    return line.replace(/"/g, "'")
+    return this.urlify(line.replace(/"/g, "'"))
   }
 
   deleteAgent() {
