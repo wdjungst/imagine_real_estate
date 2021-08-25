@@ -41,6 +41,11 @@ class Agent extends React.Component {
     })
   }
 
+  reformatBio(line) {
+    if (!line) return
+    return line.replace(/"/g, "'")
+  }
+
   deleteAgent() {
     let choice = confirm('Really delete agent?')
     if (choice) {
@@ -103,7 +108,7 @@ class Agent extends React.Component {
           <div>
             <span>
               <strong>
-              {entry}
+              {this.reformatBio(entry)}
               <br />
               </strong>
             </span>

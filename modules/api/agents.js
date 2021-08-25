@@ -1,5 +1,10 @@
 import { pool } from '../../config'
 
+const formattedBio = (bio) => {
+  if (!bio) return
+  return bio.replace(/'/g, '"')
+}
+
 export const getAgents = (request, response) => {
   console.log('Starting get Agents request')
   pool.query(
@@ -14,7 +19,7 @@ export const getAgents = (request, response) => {
 }
 
 export const addAgent = (request, response) => {
-  const imgUrl = req.body.imgUrl ? req.body.imgUrl.trim() : 'g8ub1qa56ybzp0s/default.png'
+  const imgUrl = request.body.imgUrl ? request.body.imgUrl.trim() : 'g8ub1qa56ybzp0s/default.png'
   const {
     firstName,
     lastName,
@@ -27,7 +32,7 @@ export const addAgent = (request, response) => {
   } = request.body
   pool.query(
     'INSERT INTO agents (firstName, lastName, email, phone, bio, url, imgUrl, agentHeaderId, website) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)',
-    [ firstName, lastName, email, phone, bio, url, imgUrl, agentHeaderId, website ],
+    [ firstName, lastName, email, phone, formattedBio(bio), url, imgUrl, agentHeaderId, website ],
     () => {
       response.status(201).json({ message: 'Agent added' })
     }
@@ -62,7 +67,7 @@ export const deleteAgent = (request, response) => {
 }
 
 export const updateAgent = (request, response) => {
-  const imgUrl = req.body.imgUrl ? req.body.imgUrl.trim() : 'g8ub1qa56ybzp0s/default.png'
+  const imgUrl = request.body.imgUrl ? request.body.imgUrl.trim() : 'g8ub1qa56ybzp0s/default.png'
   const node = request.params['0']
   const parts = node.split('/')
   const id = parts[parts.length - 1]
@@ -76,9 +81,10 @@ export const updateAgent = (request, response) => {
     website
   } = request.body
 
-  const query = `UPDATE agents SET firstName='${firstName}', lastName='${lastName}', email='${email}', phone='${phone}', bio='${bio}', url='${url}', imgUrl='${imgUrl}', website='${website}' WHERE id = ${id}`
-  pool.query(query, (error, user) => {
+  const query = `UPDATE agents SET firstName='${firstName}', lastName='${lastName}', email='${email}', phone='${phone}', bio='${formattedBio(bio)}', url='${url}', imgUrl='${imgUrl}', website='${website}' WHERE id = ${id}`
+  pool.query(query, (error) => {
     if (error) {
+      console.log(error)
       return response.status(500).json(error)
     }
 
