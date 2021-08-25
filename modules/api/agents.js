@@ -36,10 +36,11 @@ export const addAgent = (request, response) => {
 
 export const getAgent = (request, response) => {
   const { url } = request.query
+  console.log('URL', url)
   pool.query(
     `SELECT * FROM agents where url = '${url}' LIMIT 1`, (error, result) => {
       if (error) {
-        throw error
+        console.log(error)
       }
 
       response.status(200).json(result ? result.rows[0] : {})
@@ -47,19 +48,23 @@ export const getAgent = (request, response) => {
 }
 
 export const deleteAgent = (request, response) => {
-  const { id } = request.params
+  const node = request.params['0']
+  const parts = node.split('/')
+  const id = parts[parts.length - 1]
   pool.query(
     `DELETE FROM agents WHERE id = ${id}`, (error) => {
       if (error) {
         throw error
       }
 
-      response.status(200)
+      return response.status(200).json({})
     })
 }
 
 export const updateAgent = (request, response) => {
-  const { id } = request.params
+  const node = request.params['0']
+  const parts = node.split('/')
+  const id = parts[parts.length - 1]
   const {
     firstName,
     lastName,
@@ -71,13 +76,13 @@ export const updateAgent = (request, response) => {
     website
   } = request.body
 
-  const query = `UPDATE agents SET firstName=${firstName} lastName=${lastName} email=${email} phone=${phone} bio=${bio} url=${url} imgUrl=${imgUrl} website=${website} WHERE id = ${id}`
-  pool.query(query, (error) => {
+  const query = `UPDATE agents SET firstName='${firstName}', lastName='${lastName}', email='${email}', phone='${phone}', bio='${bio}', url='${url}', imgUrl='${imgUrl}', website='${website}' WHERE id = ${id}`
+  pool.query(query, (error, user) => {
     if (error) {
-      throw error
+      return response.status(500).json(error)
     }
 
-    response.status(200)
+    return response.status(200).json({})
   })
 }
 

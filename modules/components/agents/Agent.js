@@ -45,10 +45,10 @@ class Agent extends React.Component {
     let choice = confirm('Really delete agent?')
     if (choice) {
       $.ajax({
-        url: `/api/agents/${this.state.agent._id}`,
+        url: `/api/agents/${this.state.agent.id}`,
         type: 'DELETE',
         contentType: 'application/json',
-        data: JSON.stringify({ id: this.state.agent._id })
+        data: JSON.stringify({ id: this.state.agent.id })
       }).done( () => {
         if (this.props.auth) {
           this.props.history.push('/dashboard')
@@ -65,14 +65,15 @@ class Agent extends React.Component {
 
   editAgent(e) {
     e.preventDefault()
+    const { id } = this.state.agent
     let agent = this.refs
     let bio = this.refs.bio
     $.ajax({
-      url: `/api/agents/${this.state.agent._id}`,
+      url: `/api/agents/${id}`,
       type: 'PATCH',
       contentType: 'application/json',
       data: JSON.stringify({
-        id: this.state.agent._id,
+        id: this.state.agent.id,
         firstName: agent.firstName.value,
         lastName: agent.lastName.value,
         phone: agent.phone.value,
@@ -85,7 +86,7 @@ class Agent extends React.Component {
     }).done( () => {
       this.props.history.push('/dashboard')
     }).fail( msg => {
-      alert(msg)
+      alert('Something went wrong. Try again')
     })
   }
 

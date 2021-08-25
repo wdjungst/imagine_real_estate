@@ -51,7 +51,7 @@ export default (
         <ServerRoute path="signin" post={signIn} />
       </ServerRoute>
       <ServerRoute path="agents" post={addAgent} get={getAgents}>
-        <ServerRoute path=":url" get={getAgent} delete={deleteAgent} patch={updateAgent}/>
+        <ServerRoute path=":id" get={getAgent} delete={deleteAgent} patch={updateAgent}/>
       </ServerRoute>
     </ServerRoute>
     <Route path="*" status={404} component={NoMatch}/>
