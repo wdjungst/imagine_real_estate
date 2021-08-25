@@ -18,6 +18,7 @@ export const signUp = (req, res) => {
         [ username, hash ], (err, user) => {
           if (err) {
             console.log('ERR', err)
+            res.status(500).json(err.message)
           }
           res.status(201).json({ authenticated: true, id: user.id })
         }

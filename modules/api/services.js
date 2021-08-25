@@ -8,8 +8,6 @@ export const addService = (req, res) => {
     category
   } = req.body
 
-  console.log(req.body)
-
   pool.query(
     'INSERT INTO services (name, url, phone, category) VALUES ($1, $2, $3, $4)',
     [ name, phone, category, url ],
