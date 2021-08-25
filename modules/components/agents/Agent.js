@@ -138,6 +138,17 @@ class Agent extends React.Component {
     }
   }
 
+  showWebsite(websites) {
+    if (websites) {
+      return websites.split(',').map(site =>
+        <div className="center">
+          <a href={site} target="_blank">{site}</a>
+        </div>
+      )
+    }
+    return null
+  }
+
   show() {
     let agent = this.state.agent
     let edit = () => {
@@ -164,11 +175,7 @@ class Agent extends React.Component {
             <div className="center">
               <a href={`mailto:${agent.email}`}>{agent.email}</a>
             </div>
-            { agent.website ?
-              <div className="center">
-                <a href={agent.website} target="_blank">{agent.website}</a>
-              </div> : null
-            }
+            {this.showWebsite(agent.website)}
           </div>
           <div className={`col s12 m4 offset-m1`}>
             <div className="center">
