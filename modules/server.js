@@ -32,7 +32,6 @@ let server = createServer(getApp)
 server.use( session({ secret: process.env.SECRET, resave: false, saveUnitialized: false }))
 server.use(passport.initialize())
 
-passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 

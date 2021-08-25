@@ -20,6 +20,10 @@ class Dashboard extends React.Component {
     this.getAgents()
   }
 
+  sortAgents(x,y) {
+    return x.lastname > y.lastname ? 1 : -1
+  }
+
   getAgents() {
     $.ajax({
       url: '/api/agents',
@@ -27,7 +31,7 @@ class Dashboard extends React.Component {
       contentType: 'application/json',
       dataType: 'json'
     }).done( agents => {
-      this.setState({ agents: agents })
+      this.setState({ agents: agents.sort(this.sortAgents) })
     })
   }
 
@@ -65,7 +69,7 @@ class Dashboard extends React.Component {
     return(
       <div key={agent._id}>
         <Link to={`/agents/${url}`}>
-          {`${agent.lastName}, ${agent.firstName}`}
+          {`${agent.lastname}, ${agent.firstname}`}
         </Link>
         <br />
       </div>
@@ -195,7 +199,7 @@ class Dashboard extends React.Component {
               <input placeholder="Name" ref="name" required={true}/>
               <input placeholder="URL" ref="url" />
               <input placeholder="Phone" ref="phone" />
-              <button className="btn" type="submit">Add</button>
+              <button className="btn" disabled type="submit">Add</button>
             </form>
             <h3 className="center">Delete / Edit Services</h3>
               <select onChange={this.getServices} className="browser-default" ref="filter">
